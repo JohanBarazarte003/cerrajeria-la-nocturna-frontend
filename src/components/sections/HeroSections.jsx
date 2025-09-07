@@ -7,7 +7,7 @@ import { Phone, MessageCircle } from 'lucide-react'; // Importamos los iconos ne
 import { FaWhatsapp} from 'react-icons/fa';
 
 // Importamos la imagen de fondo y el logo (que usaremos aquí también para mayor impacto)
-import heroBackground from '../../assets/bg-background.jpg';
+import heroBackground from '../../assets/bg-background.webp';
 // import logoWhite from '../../assets/images/logo-la-nocturna-blanco.png';
 
 const HeroSection = ( {startAnimations}) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../ui/Button';
 import { Phone } from 'lucide-react';
-import logo from '../../assets/logo.png'; // Asumimos que tenemos el logo en la carpeta de assets
+import logo from '../../assets/logo.webp'; // Asumimos que tenemos el logo en la carpeta de assets
 
 const Header = () => {
   const handleCall = () => {
