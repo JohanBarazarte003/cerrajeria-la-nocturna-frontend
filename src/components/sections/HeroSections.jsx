@@ -63,7 +63,7 @@ const HeroSection = ( {startAnimations}) => {
           custom={1} // custom prop para el delay
            
         >
-          Cerrajero 24 Horas en Caracas
+          Cerrajero a Domicilio 24 Horas en Caracas
         </motion.h1>
 
         {/* Subtítulo */}
@@ -74,7 +74,7 @@ const HeroSection = ( {startAnimations}) => {
           animate={startAnimations ? "visible" : "hidden"}
           custom={2}
         >
-         La respuesta a tu emergencia al alcanze de un Click  Te atendemos en cuestión de mi mitnutos
+          La respuesta a tu emergencia. Llegamos rápido a tu domicilio.
         </motion.p>
 
         {/* Botones de Llamada a la Acción */}
