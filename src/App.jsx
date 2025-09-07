@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import HomePage from './pages/HomePage';
+import ServicioAperturaPage from './pages/ServicioAperturaPage'; // Importamos la nueva página
+
 import Preloader from './components/ui/Preloader';
 import WelcomeModal from './components/ui/WelcomeModal';
 import FloatingSocials from './components/ui/FloatingSocials';
@@ -10,27 +14,20 @@ function App() {
   const [startAnimations, setStartAnimations] = useState(false);
 
   useEffect(() => {
-    // --- LÓGICA DE CARGA ---
     const hasModalBeenClosed = sessionStorage.getItem('modalClosed');
 
     const preloaderTimer = setTimeout(() => {
       setIsLoading(false);
-      
-      // --- ¡AQUÍ ESTÁ LA SOLUCIÓN! ---
-      // Si el modal NO se va a mostrar, activamos las animaciones AHORA.
       if (hasModalBeenClosed) {
         setStartAnimations(true);
       }
+    }, 2000);
 
-    }, 2000); // Fin del preloader
-
-    // --- LÓGICA DEL MODAL ---
     const modalTimer = setTimeout(() => {
-      // Solo abrir el modal si no ha sido cerrado antes
       if (!hasModalBeenClosed) {
         setIsModalOpen(true);
       }
-    }, 2100); // Se ejecuta justo después del preloader
+    }, 2100);
 
     return () => {
       clearTimeout(preloaderTimer);
@@ -41,19 +38,22 @@ function App() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     sessionStorage.setItem('modalClosed', 'true');
-    // Esta es la primera forma de activar las animaciones
     setStartAnimations(true);
   };
 
   return (
-    <>
+    <Router>
       <Preloader isLoading={isLoading} />
-       <FloatingSocials />
+      <FloatingSocials />
       <div style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s' }}>
-        <HomePage startAnimations={startAnimations} />
+        <Routes>
+          <Route path="/" element={<HomePage startAnimations={startAnimations} />} />
+          <Route path="/servicios/apertura-de-emergencia" element={<ServicioAperturaPage />} />
+        </Routes>
       </div>
       <WelcomeModal isOpen={isModalOpen} onClose={handleCloseModal} />
-    </>
+    </Router>
   );
 }
+
 export default App;
