@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cerrajeria-la-nocturna-frontend.vercel.app/sitemap.xml
+Sitemap: https://www.cerrajerialanocturna.com/sitemap.xml
